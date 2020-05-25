@@ -120,10 +120,10 @@
 			isa = PBXGroup;
 			children = (
 				14880B1F247B66E500AC0040 /* CustomControls */,
-				14880AEF247B65A600AC0040 /* AppDelegate.swift */,
-				14880AF3247B65A600AC0040 /* ViewController.swift */,
-				14880AF8247B65A700AC0040 /* Assets.xcassets */,
 				14880AFA247B65A700AC0040 /* LaunchScreen.storyboard */,
+				14880AF3247B65A600AC0040 /* ViewController.swift */,
+				14880AEF247B65A600AC0040 /* AppDelegate.swift */,
+				14880AF8247B65A700AC0040 /* Assets.xcassets */,
 				14880AFD247B65A700AC0040 /* Info.plist */,
 			);
 			path = DCSwiftStudio;
