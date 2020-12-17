@@ -41,5 +41,9 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+    
+    <key>NSPhotoLibraryUsageDescription</key>
+    <string>保存手写签名需要访问相册</string>
+    
 </dict>
 </plist>

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		144CB135254A6E7200040BC2 /* SwiftBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144CB134254A6E7200040BC2 /* SwiftBase.swift */; };
+		144CB13D254A6F3200040BC2 /* TestSwiftController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144CB13C254A6F3200040BC2 /* TestSwiftController.swift */; };
 		14880AF0247B65A600AC0040 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14880AEF247B65A600AC0040 /* AppDelegate.swift */; };
 		14880AF4247B65A600AC0040 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14880AF3247B65A600AC0040 /* ViewController.swift */; };
 		14880AF9247B65A700AC0040 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14880AF8247B65A700AC0040 /* Assets.xcassets */; };
@@ -25,6 +27,8 @@
 		14880B3A247B674D00AC0040 /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14880B2D247B674D00AC0040 /* AlertViewController.swift */; };
 		14880B3B247B674D00AC0040 /* ActionSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14880B2E247B674D00AC0040 /* ActionSheetViewController.swift */; };
 		14880B3C247B674D00AC0040 /* KeyboardModelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14880B2F247B674D00AC0040 /* KeyboardModelViewController.swift */; };
+		14AB31DE258B3C150066A470 /* DrawSignatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AB31DD258B3C150066A470 /* DrawSignatureView.swift */; };
+		14AB31E3258B3C6C0066A470 /* DrawSigntureController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AB31E2258B3C6C0066A470 /* DrawSigntureController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +49,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		144CB134254A6E7200040BC2 /* SwiftBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftBase.swift; sourceTree = "<group>"; };
+		144CB13C254A6F3200040BC2 /* TestSwiftController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestSwiftController.swift; sourceTree = "<group>"; };
 		14880AEC247B65A600AC0040 /* DCSwiftStudio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DCSwiftStudio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		14880AEF247B65A600AC0040 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		14880AF3247B65A600AC0040 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -69,6 +75,8 @@
 		14880B2D247B674D00AC0040 /* AlertViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
 		14880B2E247B674D00AC0040 /* ActionSheetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionSheetViewController.swift; sourceTree = "<group>"; };
 		14880B2F247B674D00AC0040 /* KeyboardModelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardModelViewController.swift; sourceTree = "<group>"; };
+		14AB31DD258B3C150066A470 /* DrawSignatureView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawSignatureView.swift; sourceTree = "<group>"; };
+		14AB31E2258B3C6C0066A470 /* DrawSigntureController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawSigntureController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +104,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		144CB133254A6DB800040BC2 /* TestSwift */ = {
+			isa = PBXGroup;
+			children = (
+				144CB13C254A6F3200040BC2 /* TestSwiftController.swift */,
+				144CB134254A6E7200040BC2 /* SwiftBase.swift */,
+			);
+			path = TestSwift;
+			sourceTree = "<group>";
+		};
 		14880AE3247B65A600AC0040 = {
 			isa = PBXGroup;
 			children = (
@@ -119,12 +136,13 @@
 		14880AEE247B65A600AC0040 /* DCSwiftStudio */ = {
 			isa = PBXGroup;
 			children = (
+				144CB133254A6DB800040BC2 /* TestSwift */,
 				14880B1F247B66E500AC0040 /* CustomControls */,
-				14880AFA247B65A700AC0040 /* LaunchScreen.storyboard */,
 				14880AF3247B65A600AC0040 /* ViewController.swift */,
 				14880AEF247B65A600AC0040 /* AppDelegate.swift */,
-				14880AF8247B65A700AC0040 /* Assets.xcassets */,
 				14880AFD247B65A700AC0040 /* Info.plist */,
+				14880AF8247B65A700AC0040 /* Assets.xcassets */,
+				14880AFA247B65A700AC0040 /* LaunchScreen.storyboard */,
 			);
 			path = DCSwiftStudio;
 			sourceTree = "<group>";
@@ -150,6 +168,7 @@
 		14880B1F247B66E500AC0040 /* CustomControls */ = {
 			isa = PBXGroup;
 			children = (
+				14AB31DC258B3ABF0066A470 /* DrawSignature */,
 				14880B2B247B674D00AC0040 /* ModelController */,
 				14880B25247B674D00AC0040 /* PagesContainer */,
 				14880B21247B674D00AC0040 /* ScriptButton */,
@@ -188,6 +207,15 @@
 				14880B2F247B674D00AC0040 /* KeyboardModelViewController.swift */,
 			);
 			path = ModelController;
+			sourceTree = "<group>";
+		};
+		14AB31DC258B3ABF0066A470 /* DrawSignature */ = {
+			isa = PBXGroup;
+			children = (
+				14AB31E2258B3C6C0066A470 /* DrawSigntureController.swift */,
+				14AB31DD258B3C150066A470 /* DrawSignatureView.swift */,
+			);
+			path = DrawSignature;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -320,14 +348,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14AB31E3258B3C6C0066A470 /* DrawSigntureController.swift in Sources */,
 				14880B34247B674D00AC0040 /* PagesContainerTopBar.swift in Sources */,
 				14880B35247B674D00AC0040 /* TopBarButton.swift in Sources */,
 				14880AF4247B65A600AC0040 /* ViewController.swift in Sources */,
 				14880B3B247B674D00AC0040 /* ActionSheetViewController.swift in Sources */,
+				144CB13D254A6F3200040BC2 /* TestSwiftController.swift in Sources */,
 				14880AF0247B65A600AC0040 /* AppDelegate.swift in Sources */,
 				14880B36247B674D00AC0040 /* PagesContainer.swift in Sources */,
+				144CB135254A6E7200040BC2 /* SwiftBase.swift in Sources */,
 				14880B38247B674D00AC0040 /* ToggleController.swift in Sources */,
 				14880B37247B674D00AC0040 /* PagesContainerController.swift in Sources */,
+				14AB31DE258B3C150066A470 /* DrawSignatureView.swift in Sources */,
 				14880B39247B674D00AC0040 /* ModelViewController.swift in Sources */,
 				14880B31247B674D00AC0040 /* SuperscriptButton.swift in Sources */,
 				14880B30247B674D00AC0040 /* SuperscriptBtnController.swift in Sources */,

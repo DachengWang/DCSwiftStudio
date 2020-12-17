@@ -1,30 +1,30 @@
 //
-//  ViewController.swift
+//  TestSwiftViewController.swift
 //  DCSwiftStudio
 //
-//  Created by wangdacheng on 2020/5/25.
+//  Created by wangdacheng on 2020/10/29.
 //  Copyright © 2020 大成小栈. All rights reserved.
 //
 
 import UIKit
 
-class ViewController: UIViewController {
-    
+class TestSwiftController: UIViewController {
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "DCSwiftStudio"
+        self.title = "TestSwift"
         self.view.backgroundColor = .yellow
         self.edgesForExtendedLayout = [UIRectEdge.left, UIRectEdge.right]
         
         self.initViews()
     }
-
+    
     func initViews() {
         
         let space: CGFloat = 15.0
         let size: CGSize = self.view.frame.size
         
-        let titleArr:NSArray = ["角标按钮", "弹窗类控件", "滑动选择控件","DrawSignture", "TestSwift"]
+        let titleArr:NSArray = ["SwiftBase", ""]
         
         var offset:CGFloat = 50.0
         
@@ -50,27 +50,12 @@ class ViewController: UIViewController {
     @objc func buttonClicked(button: UIButton) {
         
         if button.tag == 0 {
-            let scriptBtnCon:SuperscriptBtnController = SuperscriptBtnController.init()
-            self.navigationController?.pushViewController(scriptBtnCon, animated: true)
+            let base:SwiftBase = SwiftBase.init()
+            self.navigationController?.pushViewController(base, animated: true)
         }
         else if button.tag == 1 {
-            let toggleController:ToggleController = ToggleController.init()
-            self.navigationController?.pushViewController(toggleController, animated: true)
+            
         }
-        else if button.tag == 2 {
-            let pagesContainer: PagesContainerController = PagesContainerController.init()
-            self.navigationController?.pushViewController(pagesContainer, animated: true)
-        }
-        else if button.tag == 3 {
-            let drawSignture: DrawSigntureController = DrawSigntureController.init()
-            self.navigationController?.pushViewController(drawSignture, animated: true)
-        }
-        else if button.tag == 4 {
-            let testSwift: TestSwiftController = TestSwiftController.init()
-            self.navigationController?.pushViewController(testSwift, animated: true)
-        }
-        
     }
+
 }
-
-
