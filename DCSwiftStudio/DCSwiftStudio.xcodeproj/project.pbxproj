@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1447DE1D2649424A0007D4C1 /* Sort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1447DE1B2649424A0007D4C1 /* Sort.swift */; };
+		1447DE1E2649424A0007D4C1 /* SortClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1447DE1C2649424A0007D4C1 /* SortClass.swift */; };
+		1447DE26264943760007D4C1 /* SortView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1447DE25264943760007D4C1 /* SortView.swift */; };
+		1447DE2E264955B30007D4C1 /* SortController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1447DE2D264955B30007D4C1 /* SortController.swift */; };
+		144C272926492860002A9EEC /* CustomControlsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144C272826492860002A9EEC /* CustomControlsController.swift */; };
+		144C272F2649292B002A9EEC /* SortsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144C272E2649292B002A9EEC /* SortsController.swift */; };
 		144CB135254A6E7200040BC2 /* SwiftBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144CB134254A6E7200040BC2 /* SwiftBase.swift */; };
 		144CB13D254A6F3200040BC2 /* TestSwiftController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144CB13C254A6F3200040BC2 /* TestSwiftController.swift */; };
 		14880AF0247B65A600AC0040 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14880AEF247B65A600AC0040 /* AppDelegate.swift */; };
@@ -49,6 +55,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1447DE1B2649424A0007D4C1 /* Sort.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sort.swift; sourceTree = "<group>"; };
+		1447DE1C2649424A0007D4C1 /* SortClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SortClass.swift; sourceTree = "<group>"; };
+		1447DE25264943760007D4C1 /* SortView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SortView.swift; sourceTree = "<group>"; };
+		1447DE2D264955B30007D4C1 /* SortController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortController.swift; sourceTree = "<group>"; };
+		144C272826492860002A9EEC /* CustomControlsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomControlsController.swift; sourceTree = "<group>"; };
+		144C272E2649292B002A9EEC /* SortsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortsController.swift; sourceTree = "<group>"; };
 		144CB134254A6E7200040BC2 /* SwiftBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftBase.swift; sourceTree = "<group>"; };
 		144CB13C254A6F3200040BC2 /* TestSwiftController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestSwiftController.swift; sourceTree = "<group>"; };
 		14880AEC247B65A600AC0040 /* DCSwiftStudio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DCSwiftStudio.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -104,6 +116,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		144C272D2649290A002A9EEC /* Sorts */ = {
+			isa = PBXGroup;
+			children = (
+				144C272E2649292B002A9EEC /* SortsController.swift */,
+				1447DE2D264955B30007D4C1 /* SortController.swift */,
+				1447DE25264943760007D4C1 /* SortView.swift */,
+				1447DE1C2649424A0007D4C1 /* SortClass.swift */,
+				1447DE1B2649424A0007D4C1 /* Sort.swift */,
+			);
+			path = Sorts;
+			sourceTree = "<group>";
+		};
 		144CB133254A6DB800040BC2 /* TestSwift */ = {
 			isa = PBXGroup;
 			children = (
@@ -138,6 +162,7 @@
 			children = (
 				144CB133254A6DB800040BC2 /* TestSwift */,
 				14880B1F247B66E500AC0040 /* CustomControls */,
+				144C272D2649290A002A9EEC /* Sorts */,
 				14880AF3247B65A600AC0040 /* ViewController.swift */,
 				14880AEF247B65A600AC0040 /* AppDelegate.swift */,
 				14880AFD247B65A700AC0040 /* Info.plist */,
@@ -168,13 +193,14 @@
 		14880B1F247B66E500AC0040 /* CustomControls */ = {
 			isa = PBXGroup;
 			children = (
+				144C272826492860002A9EEC /* CustomControlsController.swift */,
+				14880B29247B674D00AC0040 /* PagesContainerController.swift */,
+				14880B20247B674D00AC0040 /* SuperscriptBtnController.swift */,
+				14880B2A247B674D00AC0040 /* ToggleController.swift */,
 				14AB31DC258B3ABF0066A470 /* DrawSignature */,
 				14880B2B247B674D00AC0040 /* ModelController */,
 				14880B25247B674D00AC0040 /* PagesContainer */,
 				14880B21247B674D00AC0040 /* ScriptButton */,
-				14880B29247B674D00AC0040 /* PagesContainerController.swift */,
-				14880B20247B674D00AC0040 /* SuperscriptBtnController.swift */,
-				14880B2A247B674D00AC0040 /* ToggleController.swift */,
 			);
 			path = CustomControls;
 			sourceTree = "<group>";
@@ -349,15 +375,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				14AB31E3258B3C6C0066A470 /* DrawSigntureController.swift in Sources */,
+				1447DE26264943760007D4C1 /* SortView.swift in Sources */,
 				14880B34247B674D00AC0040 /* PagesContainerTopBar.swift in Sources */,
+				1447DE2E264955B30007D4C1 /* SortController.swift in Sources */,
 				14880B35247B674D00AC0040 /* TopBarButton.swift in Sources */,
 				14880AF4247B65A600AC0040 /* ViewController.swift in Sources */,
 				14880B3B247B674D00AC0040 /* ActionSheetViewController.swift in Sources */,
+				144C272926492860002A9EEC /* CustomControlsController.swift in Sources */,
 				144CB13D254A6F3200040BC2 /* TestSwiftController.swift in Sources */,
 				14880AF0247B65A600AC0040 /* AppDelegate.swift in Sources */,
+				1447DE1E2649424A0007D4C1 /* SortClass.swift in Sources */,
 				14880B36247B674D00AC0040 /* PagesContainer.swift in Sources */,
 				144CB135254A6E7200040BC2 /* SwiftBase.swift in Sources */,
 				14880B38247B674D00AC0040 /* ToggleController.swift in Sources */,
+				1447DE1D2649424A0007D4C1 /* Sort.swift in Sources */,
 				14880B37247B674D00AC0040 /* PagesContainerController.swift in Sources */,
 				14AB31DE258B3C150066A470 /* DrawSignatureView.swift in Sources */,
 				14880B39247B674D00AC0040 /* ModelViewController.swift in Sources */,
@@ -366,6 +397,7 @@
 				14880B3C247B674D00AC0040 /* KeyboardModelViewController.swift in Sources */,
 				14880B3A247B674D00AC0040 /* AlertViewController.swift in Sources */,
 				14880B32247B674D00AC0040 /* ScriptLabelView.swift in Sources */,
+				144C272F2649292B002A9EEC /* SortsController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,30 +1,31 @@
 //
-//  ViewController.swift
+//  SortsController.swift
 //  DCSwiftStudio
 //
-//  Created by wangdacheng on 2020/5/25.
-//  Copyright © 2020 大成小栈. All rights reserved.
+//  Created by wangdacheng on 2021/5/10.
+//  Copyright © 2021 大成小栈. All rights reserved.
 //
 
 import UIKit
 
-class ViewController: UIViewController {
-    
+class SortsController: UIViewController {
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "DCSwiftStudio"
-        self.view.backgroundColor = .yellow
+
+        self.title = "VisibleSorts"
+        self.view.backgroundColor = UIColor.yellow
         self.edgesForExtendedLayout = [UIRectEdge.left, UIRectEdge.right]
         
         self.initViews()
     }
-
+    
     func initViews() {
         
         let space: CGFloat = 15.0
         let size: CGSize = self.view.frame.size
         
-        let titleArr:NSArray = ["CustomControls", "VisibleSorts"]
+        let titleArr:NSArray = ["Bubble", "Select", "Insert", "Shell", "Heap", "Merge", "Quick"]
         
         var offset:CGFloat = 50.0
         
@@ -49,15 +50,10 @@ class ViewController: UIViewController {
 
     @objc func buttonClicked(button: UIButton) {
         
-        if button.tag == 0 {
-            let ccController: CustomControlsController = CustomControlsController.init()
-            self.navigationController?.pushViewController(ccController, animated: true)
-        }
-        else if button.tag == 1 {
-            let sortsController:SortsController = SortsController.init()
-            self.navigationController?.pushViewController(sortsController, animated: true)
-        }
+        let sortController: SortController = SortController.init()
+        sortController.type = SortTypeEnum(rawValue: button.tag)!;
+        self.navigationController?.pushViewController(sortController, animated: true)
     }
+    
+
 }
-
-
