@@ -12,6 +12,8 @@ class SortController: UIViewController, UITextFieldDelegate{
     
     var displayView: UIView!
     var countTextField: UITextField!
+    var actionButton: UIButton!
+    
     
     var sortViews: Array<SortView> = []
     var sortViewHight: Array<Int> = []
@@ -73,10 +75,10 @@ class SortController: UIViewController, UITextFieldDelegate{
         
         countTextField = UITextField.init(frame: CGRect.init(x: btnWidth + space*2.0, y: 0.0, width: topView.frame.size.width - space*4.0 - btnWidth*2.0, height: height))
         countTextField.autoresizingMask  = .flexibleWidth
-        countTextField.placeholder = "输入元素个数，回车"
+        countTextField.placeholder = "输入count值，并回车"
         topView.addSubview(countTextField)
         
-        let actionButton: UIButton = UIButton.init(type: UIButton.ButtonType.system);
+        actionButton = UIButton.init(type: UIButton.ButtonType.system);
         actionButton.frame = CGRect.init(x: topView.frame.size.width - space - btnWidth, y: 0.0, width: btnWidth, height: height)
         actionButton.setTitle("Action", for: UIControl.State.normal)
         actionButton.addTarget(self, action: #selector(actionBtnClicked(button:)), for: UIControl.Event.touchUpInside)
@@ -104,6 +106,8 @@ class SortController: UIViewController, UITextFieldDelegate{
     @objc func actionBtnClicked(button: UIButton) {
         
         self.view.endEditing(true)
+        actionButton.isEnabled = false
+        countTextField.isUserInteractionEnabled = false
         
         DispatchQueue.global().async {
             self.sortViewHight = self.sort.sort(items: self.sortViewHight)
@@ -131,13 +135,16 @@ class SortController: UIViewController, UITextFieldDelegate{
 
     //MARK: - Private Method
     private func setSortClosure() {
-        weak var weak_self = self
+        
+        weak var weakSelf = self
         sort.setEveryStepClosure(everyStepClosure: { (index, value) in
             DispatchQueue.main.async {
-                weak_self?.updateSortViewHeight(index: index, value: CGFloat(value))
+                weakSelf?.updateSortViewHeight(index: index, value: CGFloat(value))
             }
         }) { (list) in
             DispatchQueue.main.async {
+                weakSelf?.actionButton.isEnabled = true
+                weakSelf?.countTextField.isUserInteractionEnabled = true
                 //weak_self?.modeMaskView.isHidden = true
             }
         }
