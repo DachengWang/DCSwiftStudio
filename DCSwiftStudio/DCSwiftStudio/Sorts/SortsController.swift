@@ -51,7 +51,9 @@ class SortsController: UIViewController {
     @objc func buttonClicked(button: UIButton) {
         
         let sortController: SortController = SortController.init()
-        sortController.type = SortTypeEnum(rawValue: button.tag)!;
+        let (sortName, sort) = SortFactory.create(type: SortTypeEnum(rawValue: button.tag)!)
+        sortController.sort = sort
+        sortController.sortName = sortName
         self.navigationController?.pushViewController(sortController, animated: true)
     }
     

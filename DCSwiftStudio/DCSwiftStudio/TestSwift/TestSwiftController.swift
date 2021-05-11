@@ -12,7 +12,7 @@ class TestSwiftController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "TestSwift"
+        self.title = "TestSwiftController"
         self.view.backgroundColor = .yellow
         self.edgesForExtendedLayout = [UIRectEdge.left, UIRectEdge.right]
         

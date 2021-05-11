@@ -60,7 +60,7 @@ class SwiftBase: UIViewController {
             print(lArray)
         }
         
-        let constArr = Array<Int>()
+        //let constArr = Array<Int>()
         var mutArr = Array<String>()
         mutArr.insert("Zero", at: 0)
         mutArr.insert("First", at: 1)

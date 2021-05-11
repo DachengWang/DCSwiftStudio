@@ -24,7 +24,7 @@ class ViewController: UIViewController {
         let space: CGFloat = 15.0
         let size: CGSize = self.view.frame.size
         
-        let titleArr:NSArray = ["CustomControls", "VisibleSorts"]
+        let titleArr:NSArray = ["CustomControls", "VisibleSorts", "TestSwift"]
         
         var offset:CGFloat = 50.0
         
@@ -56,6 +56,9 @@ class ViewController: UIViewController {
         else if button.tag == 1 {
             let sortsController:SortsController = SortsController.init()
             self.navigationController?.pushViewController(sortsController, animated: true)
+        } else {
+            let testSwift:TestSwiftController = TestSwiftController.init()
+            self.navigationController?.pushViewController(testSwift, animated: true)
         }
     }
 }

@@ -22,31 +22,31 @@ enum SortTypeEnum: Int {
 
 /// 排序类的简单工厂
 class SortFactory {
-    static func create(type: SortTypeEnum) -> SortType {
+    static func create(type: SortTypeEnum) -> (String, SortType) {
         switch type {
         case .BubbleSort:
-            return BubbleSort()
+            return ("BubbleSort", BubbleSort())
             
         case .SelectSort:
-            return SimpleSelectionSort()
+            return ("SelectSort", SimpleSelectionSort())
             
         case .InsertSort:
-            return InsertSort()
+            return ("InsertSort", InsertSort())
             
         case .ShellSort:
-            return ShellSort()
+            return ("ShellSort", ShellSort())
             
         case .HeapSort:
-            return HeapSort()
+            return ("HeapSort", HeapSort())
             
         case .MergeSort:
-            return MergingSort()
+            return ("MergeSort", MergingSort())
             
         case .QuickSort:
-            return QuickSort()
+            return ("QuickSort", QuickSort())
             
         case .RadixSort:
-            return RadixSort()
+            return ("RadixSort", RadixSort())
         }
     }
 }

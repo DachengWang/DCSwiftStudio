@@ -11,14 +11,14 @@ import UIKit
 class SortController: UIViewController, UITextFieldDelegate{
     
     var displayView: UIView!
-    var numberCountTextField: UITextField!
-//    var modeMaskView: UIView!
+    var countTextField: UITextField!
     
     var sortViews: Array<SortView> = []
     var sortViewHight: Array<Int> = []
-    var sort: SortType! = BubbleSort()
+    public var sort: SortType! = BubbleSort()
+    public var sortName: String? = "BubbleSort"
     
-    var numberCount: Int = 200
+    var count: Int = 200
     var displayViewHeight: CGFloat {
         get {
             return displayView.frame.height
@@ -33,80 +33,51 @@ class SortController: UIViewController, UITextFieldDelegate{
     
     var sortViewWidth: CGFloat {
         get {
-            return self.displayViewWidth / CGFloat(self.numberCount)
+            return self.displayViewWidth / CGFloat(self.count)
         }
     }
-    
-    
-    
-    
-
-    public var type: SortTypeEnum?
-    
-    var countInput: UITextField!
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.title = "VisibleSorts"
+        self.title = sortName
         self.view.backgroundColor = UIColor.yellow
         self.edgesForExtendedLayout = [UIRectEdge.left, UIRectEdge.right]
         
-        var title: String?
-        switch type {
-        case .BubbleSort:
-            title = "BubbleSort"
-        case .SelectSort:
-            title = "SelectSort"
-        case .InsertSort:
-            title = "InsertSort"
-        case .ShellSort:
-            title = "ShellSort"
-        case .HeapSort:
-            title = "HeapSort"
-        case .MergeSort:
-            title = "MergeSort"
-        case .QuickSort:
-            title = "QuickSort"
-        default:
-            title = "unknown"
-        }
-        self.title = title!
-        
         self.initViews()
         self.setSortClosure()
+        
     }
     
-
     func initViews() {
         
-        let space: CGFloat = 10.0
-        let height: CGFloat = 30.0
+        let space: CGFloat = 5.0
+        let height: CGFloat = 50.0
+        let btnWidth: CGFloat = 70.0
         let size: CGSize = self.view.frame.size
         
         let topView:UIView = UIView.init(frame: CGRect.init(x: space, y: space, width: size.width - space*2.0, height: height))
         topView.backgroundColor = UIColor.white
         self.view.addSubview(topView)
-        topView.layer.borderWidth = 0.5
-        topView.layer.borderColor = UIColor.darkGray.cgColor
-        topView.layer.cornerRadius = 3.0
-        topView.clipsToBounds = true
         
-        let countLabel:UILabel = UILabel.init(frame: CGRect.init(x: 0, y: 0, width: 60.0, height: height));
+        let line:UIView = UIView.init(frame: CGRect.init(x: 0, y: height - 0.5, width: topView.frame.size.width, height: 1.0))
+        line.backgroundColor = UIColor.lightGray
+        topView.addSubview(line)
+        
+        let countLabel:UILabel = UILabel.init(frame: CGRect.init(x: 0, y: 0, width: btnWidth, height: height));
+        countLabel.textColor = UIColor.darkGray
         topView.addSubview(countLabel)
         countLabel.text = "元素个数："
         countLabel.sizeToFit()
         countLabel.center.y = height / 2.0
         
-        numberCountTextField = UITextField.init(frame: CGRect.init(x: 60.0 + space*2.0, y: 0.0, width: topView.frame.size.width - space*4.0 - 60.0*2.0, height: height))
-        numberCountTextField.backgroundColor = UIColor.lightGray
-        numberCountTextField.autoresizingMask  = .flexibleWidth
-        topView.addSubview(numberCountTextField)
+        countTextField = UITextField.init(frame: CGRect.init(x: btnWidth + space*2.0, y: 0.0, width: topView.frame.size.width - space*4.0 - btnWidth*2.0, height: height))
+        countTextField.autoresizingMask  = .flexibleWidth
+        countTextField.placeholder = "输入元素个数，回车"
+        topView.addSubview(countTextField)
         
         let actionButton: UIButton = UIButton.init(type: UIButton.ButtonType.system);
-        actionButton.frame = CGRect.init(x: topView.frame.size.width - space - 60.0, y: 0.0, width: 60.0, height: height)
-        actionButton.setTitleColor(UIColor.darkGray, for: UIControl.State.normal)
+        actionButton.frame = CGRect.init(x: topView.frame.size.width - space - btnWidth, y: 0.0, width: btnWidth, height: height)
         actionButton.setTitle("Action", for: UIControl.State.normal)
         actionButton.addTarget(self, action: #selector(actionBtnClicked(button:)), for: UIControl.Event.touchUpInside)
         topView.addSubview(actionButton)
@@ -115,67 +86,50 @@ class SortController: UIViewController, UITextFieldDelegate{
         displayView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         displayView.backgroundColor = UIColor.white
         self.view.addSubview(displayView)
-    }
-    
-    
-    @objc func actionBtnClicked(button: UIButton) {
         
-//        self.modeMaskView.isHidden = false
-        DispatchQueue.global().async {
-            self.sortViewHight = self.sort.sort(items: self.sortViewHight)
-        }
+        displayView.layer.borderWidth = 0.5
+        displayView.layer.borderColor = UIColor.darkGray.cgColor
     }
-    
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        self.numberCountTextField.delegate = self
-        self.numberCountTextField.text = "\(numberCount)"
+        self.countTextField.delegate = self
+        self.countTextField.text = "\(count)"
         if sortViews.isEmpty {
             self.configSortViewHeight()
             self.addSortViews()
         }
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    // MARK: - Response Event
-    @IBAction func tapSegmentContol(_ sender: UISegmentedControl) {
-        self.configSortViewHeight()
-        for i in 0..<self.sortViews.count {
-            self.updateSortViewHeight(index: i, value: CGFloat(sortViewHight[i]))
-        }
+    @objc func actionBtnClicked(button: UIButton) {
         
-        let sortType = SortTypeEnum(rawValue: sender.selectedSegmentIndex)!
-        self.sort = SortFactory.create(type: sortType)
-        self.setSortClosure()
-    }
-    
-    @IBAction func tapSortButton(_ sender: AnyObject) {
-//        self.modeMaskView.isHidden = false
+        self.view.endEditing(true)
+        
         DispatchQueue.global().async {
             self.sortViewHight = self.sort.sort(items: self.sortViewHight)
         }
     }
     
-    //MARK: -- UITextFieldDelegate
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+        self.view.endEditing(true)
+    }
+    
+    // MARK: -- UITextFieldDelegate
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
         textField.resignFirstResponder()
         let text = textField.text
         guard let number: Int = Int(text!) else {
             return true
         }
-        numberCount = number
+        count = number
         self.resetSubViews()
         return true
     }
 
 
     //MARK: - Private Method
-    /// 设置排序对象相关的回调
     private func setSortClosure() {
         weak var weak_self = self
         sort.setEveryStepClosure(everyStepClosure: { (index, value) in
@@ -184,7 +138,7 @@ class SortController: UIViewController, UITextFieldDelegate{
             }
         }) { (list) in
             DispatchQueue.main.async {
-//                weak_self?.modeMaskView.isHidden = true
+                //weak_self?.modeMaskView.isHidden = true
             }
         }
     }
@@ -194,19 +148,18 @@ class SortController: UIViewController, UITextFieldDelegate{
         if !sortViewHight.isEmpty {
             sortViewHight.removeAll()
         }
-        for _ in 0..<self.numberCount {
+        for _ in 0..<self.count {
             self.sortViewHight.append(Int(arc4random_uniform(UInt32(displayViewHeight))))
         }
     }
     
     private func addSortViews() {
-        for i in 0..<self.numberCount {
+        for i in 0..<self.count {
             let size: CGSize = CGSize(width: self.sortViewWidth, height: CGFloat(sortViewHight[i]))
             let origin: CGPoint = CGPoint(x: CGFloat(i) * sortViewWidth, y: 0)
             let sortView = SortView(frame: CGRect(origin: origin, size: size))
             self.displayView.addSubview(sortView)
             self.sortViews.append(sortView)
-            CGRect(origin: CGPoint.zero, size: CGSize())
         }
     }
     
