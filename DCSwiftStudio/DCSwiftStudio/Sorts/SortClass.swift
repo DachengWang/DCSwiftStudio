@@ -83,20 +83,18 @@ class SortBaseClass {
 class BubbleSort: SortBaseClass, SortType {
     func sort(items: Array<Int>) -> Array<Int> {
         //print("冒泡排序：")
+        var tmp: Int!
         var list = items
-        for i in 0..<list.count {
-            var j = list.count - 1
-            while j > i {
-                if list[j - 1] > list[j]  { //前边的大于后边的则进行交换
-                    let temp = list[j]
-                    list[j] = list[j - 1]
-                    list[j - 1] = temp
+        for i in 0 ..< list.count {
+            for j in 0 ..< list.count-i-1  {
+                if list[j] > list[j+1] {
+                    tmp = list[j]
+                    list[j] = list[j+1]
+                    list[j+1] = tmp
                     
                     displayResult(index: j, value: list[j])
-                    displayResult(index: j-1, value: list[j-1])
-                    
+                    displayResult(index: j+1, value: list[j+1])
                 }
-                j = j - 1
             }
         }
         self.successSort(sortList: list)
@@ -104,33 +102,27 @@ class BubbleSort: SortBaseClass, SortType {
     }
 }
 
-
 /// 插入排序-O(n^2)
 class InsertSort: SortBaseClass, SortType{
     func sort(items: Array<Int>) -> Array<Int> {
         //print("插入排序")
         var list = items
-        for i in 1..<list.count {   //循环无序数列
-            //print("第\(i)轮插入：")
-            //print("要选择插入的值为：\(list[i])")
+        for i in 1..<list.count {//循环无序数列
             var j = i
-            while j > 0 {           //循环有序数列，插入相应的值
+            while j > 0 {//循环有序数列，插入相应的值
                 if list[j] < list[j - 1]  {
-                    
                     let temp = list[j]
                     list[j] = list[j-1]
                     list[j-1] = temp
-                    
+
                     displayResult(index: j, value: list[j])
                     displayResult(index: j-1, value: list[j-1])
-                    
+
                     j = j - 1
                 } else {
                     break
                 }
             }
-            //print("插入的位置为：\(j)")
-            //print("本轮插入完毕, 插入结果为：\n\(list)\n")
         }
         self.successSort(sortList: list)
         return list
